@@ -159,6 +159,12 @@ save_config()
  return sendText(msg.chat_id_, msg.id_, 0, 1, nil, text, 1, 'md')
  end
  end
+ elseif text_msg == "git pull" then
+ local text = io.popen("git pull "):read('*all')
+ return sendText(msg.chat_id_, msg.id_, 0, 1, nil, text, 1, nil)
+ elseif text_msg == "serverinfo" then
+local text = io.popen("sh ./data/bot/cmd.sh"):read('*all')
+ return sendText(msg.chat_id_, msg.id_, 0, 1, nil, text, 1, nil)
 elseif text_msg == 'active' then
 local function dl_cb_active(arg, data,extype) 
 vardump(data)
